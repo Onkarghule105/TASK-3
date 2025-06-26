@@ -1,0 +1,63 @@
+CREATE DATABASE EMPLOYEEDETAILS;
+USE EMPLOYEEDETAILS;
+
+
+-- employees TABLE 
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name TEXT,
+    department TEXT,
+    salary INT,
+    join_date DATE
+);
+
+-- INSERT TO employees TABLE
+INSERT INTO employees (id, name, department, salary, join_date) VALUES
+(1, 'Alice', 'HR', 50000, '2022-01-15'),
+(2, 'Bob', 'IT', 75000, '2021-06-01'),
+(3, 'Charlie', 'Finance', 65000, '2023-03-12'),
+(4, 'David', 'IT', 80000, '2020-09-30'),
+(5, 'Eva', 'HR', 52000, '2022-11-20'),
+(6, 'Frank', 'Finance', 70000, '2021-12-10');
+
+-- 1. SELECT ALL COLUMNS
+SELECT * FROM employees;
+
+-- 2. SELECT SPECIFIC COLUMN
+SELECT NAME,SALARY FROM employees;
+
+-- 3.Filter with WHERE
+SELECT NAME FROM EMPLOYEES
+WHERE SALARY = 50000;
+
+-- 4. Use AND
+SELECT ID,NAME FROM EMPLOYEES
+WHERE DEPARTMENT = 'IT' AND SALARY > 10000;
+
+-- 5. USE OR
+SELECT ID,NAME FROM EMPLOYEES
+WHERE DEPARTMENT = 'IT' OR DEPARTMENT = 'HR';
+
+-- 6. USE LIKE
+SELECT * FROM EMPLOYEES
+WHERE NAME LIKE 'A%';  -- SELECT ALL DATA OF EMPLOYEE WHO'S NAME START WITH 'A'.
+
+-- 7. USE BETWEEN
+SELECT * FROM EMPLOYEES
+WHERE SALARY BETWEEN 60000 AND 75000;
+
+-- 8. ORDER BY 
+SELECT * FROM employees 
+ORDER BY salary DESC;
+
+-- 9.LIMIT 
+SELECT * FROM employees 
+ORDER BY join_date DESC 
+LIMIT 3;
+
+-- 10. DISTINCT
+SELECT DISTINCT department FROM employees;
+
+-- 11.  Use aliasing
+SELECT name AS EmployeeName, salary AS MonthlySalary 
+FROM employees;
